@@ -16,11 +16,7 @@ Senaryo
 public class _03_SubScribe extends GenelWebDriver {
 
 
-
-
-
-
-
+    
     @Test(priority = 1)
     void subScribeFunctionYes(){
 
@@ -34,6 +30,8 @@ public class _03_SubScribe extends GenelWebDriver {
         cont.click();
 
         Tools.successMessageValidation();
+
+
     }
 
 
