@@ -40,7 +40,7 @@ public class GenelWebDriver {
 
 
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30)); //Sadece ana sayfa yüklenirken en başta hata vermemesi için
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30)); //Bütün WebElement için geçerli
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5)); //Bütün WebElement için geçerli
 
         driver.get("https://opencart.abstracta.us/index.php?route=account/login");
 

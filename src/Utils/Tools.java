@@ -22,7 +22,20 @@ public class Tools {
 
 
         WebElement YesilyaziDogrula= GenelWebDriver.driver.findElement(By.xpath("//*[@class='alert alert-success alert-dismissible']"));
-        Assert.assertTrue(YesilyaziDogrula.getText().contains("Success"));
+        Assert.assertTrue(YesilyaziDogrula.getText().toLowerCase().contains("Success"));
 
     }
+
+
+
+    public static void Bekle(int saniye)  {
+        try {
+            Thread.sleep(saniye*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
 }
