@@ -1,37 +1,53 @@
 package Utils;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GenelWebDriver {
+public class ParametreliWebDriver {
 
 
 
     public static WebDriver driver;
     public static WebDriverWait wait;
+
+
+    @Parameters("browser")
     @BeforeClass
-    public void BaslangicIslemleri(){
+    public void BaslangicIslemleri(String browser){
         System.out.println("Driver start....");
 
 
         Logger logger = Logger.getLogger("");
         logger.setLevel(Level.SEVERE);
 
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true"); //Sessize al
-        System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
-        driver=new ChromeDriver();
+        if (browser.equalsIgnoreCase("chrome")) {
+            System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true"); //Sessize al
+            System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+            driver = new ChromeDriver();
+        }
+
+        else
+            if (browser.equalsIgnoreCase("firefox")) {
+                System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null"); //Sessize al
+                System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
+                driver = new FirefoxDriver();
+
+            }
+
+
        // driver.manage().window().maximize();//max
         driver.manage().deleteAllCookies();
 
