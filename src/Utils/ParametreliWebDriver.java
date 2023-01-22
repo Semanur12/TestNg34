@@ -20,7 +20,7 @@ public class ParametreliWebDriver {
 
 
 
-    public static WebDriver driver;
+    public  WebDriver driver;
     public static WebDriverWait wait;
 
 
