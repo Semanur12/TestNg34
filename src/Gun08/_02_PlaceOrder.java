@@ -32,8 +32,8 @@ public class _02_PlaceOrder extends GenelWebDriver {
         WebElement searchButton=driver.findElement(By.className("input-group-btn"));
         searchButton.click();
 
-        WebElement addToCartButton=driver.findElement(By.xpath("//span[text()='Add to Cart'"));
-        addToCartButton.click();
+        WebElement addToCart=driver.findElement(By.xpath("//span[text()='Add to Cart']"));
+        addToCart.click();
 
         WebElement shoppingCart=driver.findElement(By.linkText("Shopping Cart"));
         shoppingCart.click();
@@ -56,16 +56,16 @@ public class _02_PlaceOrder extends GenelWebDriver {
 
 
         WebElement continue4=wait.until(ExpectedConditions.elementToBeClickable(By.id("button-payment-method")));
-        continue4.click();
+        continue4.click(); //wait de her zaman bekler
 
         WebElement confirm=driver.findElement(By.id("button-confirm"));
         confirm.click();
 
         wait.until(ExpectedConditions.urlContains("success")); //Success olana kadar bekle
 
-        WebElement h1=wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[id='content']>h1")));
+        WebElement confirmtxt=wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[id='content']>h1")));
 
-        Assert.assertEquals(h1.getText(),"Your order has been placed!","Karşılaştırma sonucu :");
+        Assert.assertEquals(confirmtxt.getText(),"Your order has been placed!","Karşılaştırma sonucu :");
 
 
 

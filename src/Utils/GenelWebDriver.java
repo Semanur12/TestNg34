@@ -32,7 +32,7 @@ public class GenelWebDriver {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true"); //Sessize al
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         driver=new ChromeDriver();
-       // driver.manage().window().maximize();//max
+        driver.manage().window().maximize();//max
         driver.manage().deleteAllCookies();
 
 
